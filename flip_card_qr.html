@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>빛을 따라 가는 사람</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    }
+    .card {
+      width: 55mm;
+      height: 85mm;
+      perspective: 1000px;
+      margin-top: 20px;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+      cursor: pointer;
+    }
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+    .card-front {
+      background: #eafaf1;
+      flex-direction: column;
+    }
+    .card-front h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #2c3e50;
+    }
+    .card-front p {
+      font-size: 14px;
+      color: #2c3e50;
+    }
+    .card-back {
+      background: #fef9e7;
+      color: #2c3e50;
+      transform: rotateY(180deg);
+      flex-direction: column;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="card-inner">
+      <!-- 앞면 -->
+      <div class="card-face card-front">
+        <div>
+          <h3>네 길을 여호와께 맡기라</h3>
+          <p>그를 의지하면 그가 이루시고</p>
+          <p>(시 37:5)</p>
+        </div>
+      </div>
+      <!-- 뒷면 -->
+      <div class="card-face card-back">
+        <p>
+          빛의 여정에 들어선 당신,<br>
+          이제 하나님의 인도하심을 따라 말씀의 길로 떠나가세요.<br><br>
+          다음 장소의 힌트는 목양관 복도에 있는 소화전에서 찾을 수 있습니다.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById('card');
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+  </script>
+</body>
+</html>
