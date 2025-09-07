@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>빛을 따라 가는 사람</title>
 
-  <!-- Google Fonts (HTTPS) -->
+  <!-- Google Fonts (명조체) -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome Icons (HTTPS) -->
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMj2vT3lqxGkM8fXjy2M5h/6qB+7t0wJf0YlUO8G0r6JYp+n+0FayWz6AxFdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     body {
-      font-family: 'Noto Serif KR', serif; /* 명조체 유지 */
+      font-family: 'Noto Serif KR', serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -52,38 +52,35 @@
       text-align: center;
       padding: 15px;
       box-sizing: border-box;
-      font-family: 'Noto Serif KR', serif;
+      flex-direction: column;
+      color: #ffffff; /* 글자 기본 흰색 */
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.8); /* 글자 그림자 */
     }
     .card-front {
       background: 
-        linear-gradient(rgba(212, 241, 255, 0.7), rgba(212, 241, 255, 0.7)), 
+        linear-gradient(rgba(212, 241, 255, 0.85), rgba(212, 241, 255, 0.85)),
         url('image/front-1.png') no-repeat center/cover;
-      flex-direction: column;
-      color: #2c3e50; /* 글자 진한 남색 */
     }
     .card-front h3 {
       font-size: 16px;
       margin-bottom: 8px;
-      color: #2c3e50;
     }
     .card-front p {
       font-size: 14px;
-      color: #2c3e50;
     }
     .card-back {
       background: 
-        linear-gradient(rgba(181, 230, 255, 0.7), rgba(181, 230, 255, 0.7)), 
+        linear-gradient(rgba(181, 230, 255, 0.85), rgba(181, 230, 255, 0.85)),
         url('image/back-1.png') no-repeat center/cover;
-      color: #2c3e50;
       transform: rotateY(180deg);
-      flex-direction: column;
       font-size: 13px;
       line-height: 1.4;
     }
     .hint-icon {
       margin-top: 10px;
       font-size: 18px;
-      color: #2c3e50;
+      color: #ffffff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
     }
   </style>
 </head>
