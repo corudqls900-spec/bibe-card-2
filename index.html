@@ -13,7 +13,7 @@
 
   <style>
     body {
-      font-family: 'Noto Serif KR', sans-serif;
+      font-family: 'Noto Serif KR', serif; /* 명조체 유지 */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -52,24 +52,29 @@
       text-align: center;
       padding: 15px;
       box-sizing: border-box;
+      font-family: 'Noto Serif KR', serif;
     }
     .card-front {
-      background: url('image/front-1.png') no-repeat center/cover;
+      background: 
+        linear-gradient(rgba(212, 241, 255, 0.7), rgba(212, 241, 255, 0.7)), 
+        url('image/front-1.png') no-repeat center/cover;
       flex-direction: column;
-      color: #D4F1FF;
+      color: #2c3e50; /* 글자 진한 남색 */
     }
     .card-front h3 {
       font-size: 16px;
       margin-bottom: 8px;
-      color: #D4F1FF;
+      color: #2c3e50;
     }
     .card-front p {
       font-size: 14px;
-      color: #D4F1FF;
+      color: #2c3e50;
     }
     .card-back {
-      background: url('image/back-1.png') no-repeat center/cover;
-      color: #B5E6FF;
+      background: 
+        linear-gradient(rgba(181, 230, 255, 0.7), rgba(181, 230, 255, 0.7)), 
+        url('image/back-1.png') no-repeat center/cover;
+      color: #2c3e50;
       transform: rotateY(180deg);
       flex-direction: column;
       font-size: 13px;
@@ -78,7 +83,7 @@
     .hint-icon {
       margin-top: 10px;
       font-size: 18px;
-      color: #B5E6FF;
+      color: #2c3e50;
     }
   </style>
 </head>
