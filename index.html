@@ -22,12 +22,14 @@
       margin: 0;
       background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
     }
+
     .card {
       width: 55mm;
       height: 85mm;
       perspective: 1000px;
       margin-top: 20px;
     }
+
     .card-inner {
       position: relative;
       width: 100%;
@@ -36,74 +38,96 @@
       transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
       cursor: pointer;
     }
+
     .card.flipped .card-inner {
       transform: rotateY(180deg);
     }
+
     .card-face {
       position: absolute;
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       text-align: center;
-      padding: 15px;
+      padding: 0;
       box-sizing: border-box;
-      flex-direction: column;
-      color: #000000; /* 글자 기본 흰색 */
-      text-shadow: 1px 1px 2px rgba(255,255,255,0.6); /* 글자 그림자 */
     }
+
+    /* 앞면 */
     .card-front {
-      background: 
-        linear-gradient(rgba(212, 241, 255, 0.9), rgba(212, 241, 255, 0.85)),
-        url('images/front-1.png') no-repeat center/cover;
+      background: url('image/front-1.png') no-repeat center/cover;
+      color: #000000; /* 글자 검정 */
     }
-    .card-front h3 {
-      font-size: 16px;
-      margin-bottom: 8px;
-    }
-    .card-front p {
-      font-size: 14px;
-    }
+
+    /* 뒷면 */
     .card-back {
-      background: 
-        linear-gradient(rgba(181, 230, 255, 0.85), rgba(181, 230, 255, 0.85)),
-        url('images/back-1.png') no-repeat center/cover;
+      background: url('image/back-1.png') no-repeat center/cover;
+      color: #000000;
       transform: rotateY(180deg);
-      font-size: 13px;
+    }
+
+    /* 텍스트 박스 */
+    .text-box {
+      background: rgba(212, 241, 255, 0.8); /* 반투명 앞면 배경 */
+      padding: 10px 12px;
+      border-radius: 8px;
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.6); /* 글자 선명하게 */
+      max-width: 90%;
+    }
+
+    .card-back .text-box {
+      background: rgba(181, 230, 255, 0.8); /* 반투명 뒷면 배경 */
+    }
+
+    .text-box h3 {
+      margin: 0 0 6px 0;
+      font-size: 16px;
+    }
+
+    .text-box p {
+      margin: 2px 0;
+      font-size: 14px;
       line-height: 1.4;
     }
+
     .hint-icon {
-      margin-top: 10px;
+      margin-top: 8px;
       font-size: 18px;
-      color: #ffffff;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
     }
+
   </style>
 </head>
 <body>
+
   <div class="card" id="card">
     <div class="card-inner">
+
       <!-- 앞면 -->
       <div class="card-face card-front">
-        <div>
+        <div class="text-box">
           <h3>네 길을 여호와께 맡기라</h3>
           <p>그를 의지하면 그가 이루시고</p>
           <p>(시 37:5)</p>
           <i class="fas fa-lightbulb hint-icon"></i>
         </div>
       </div>
+
       <!-- 뒷면 -->
       <div class="card-face card-back">
-        <p>
-          빛의 여정에 들어선 당신,<br>
-          이제 하나님의 인도하심을 따라 말씀의 길로 떠나가세요.<br><br>
-          다음 장소의 힌트는 목양관 복도에 있는 소화전에서 찾을 수 있습니다.
-        </p>
+        <div class="text-box">
+          <p>
+            빛의 여정에 들어선 당신,<br>
+            이제 하나님의 인도하심을 따라 말씀의 길로 떠나가세요.<br><br>
+            다음 장소의 힌트는 목양관 복도에 있는 소화전에서 찾을 수 있습니다.
+          </p>
+        </div>
       </div>
+
     </div>
   </div>
 
