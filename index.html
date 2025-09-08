@@ -52,35 +52,42 @@
       height: 100%;
       backface-visibility: hidden;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 10px;
       box-sizing: border-box;
-      font-size: calc(12px + 0.2vw); /* 글자 크기 조금 줄임 */
+      font-size: calc(12px + 0.3vw);
     }
 
     /* 앞면 */
     .card-front {
-      background: url('images/front -2.png') no-repeat center/cover;
+      background: url('images/front-1.png') no-repeat center/cover;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.85) contrast(1.1);
       color: #000;
     }
 
     /* 뒷면 */
     .card-back {
-      background: url('images/back-2.png') no-repeat center/cover;
+      background: url('images/back-1.png') no-repeat center/cover;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.85) contrast(1.1);
       color: #000;
       transform: rotateY(180deg);
     }
 
     /* 텍스트 박스 */
     .text-box {
-      background: rgba(212, 241, 255, 0.19); /* 거의 투명 */
+      background: rgba(255, 255, 255, 0.15); /* 거의 투명 */
+      backdrop-filter: blur(2px);             /* 글자 뒤 배경 살짝 흐림 */
       padding: 12px 14px;
       border-radius: 8px;
-      text-shadow: 1px 1px 3px rgba(255,255,255,0.6);
+      text-shadow: 1px 1px 4px rgba(255,255,255,0.7);
       max-width: 90%;
       word-wrap: break-word;
       overflow-wrap: anywhere;
@@ -116,8 +123,7 @@
       <!-- 앞면 -->
       <div class="card-face card-front">
         <div class="text-box">
-          <p>너희에게 심지어</p> 
-          <p>머리털까지도</p>
+          <h3>너희에게 심지어 머리털까지도</h3>
           <p>다 세신 바 되었나니<br>두려워하지 말라</p>
           <p>너희는 많은 참새보다 더 귀하니라</p>
           <p>(눅12:7)</p>
