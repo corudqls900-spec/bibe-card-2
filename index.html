@@ -5,17 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>빛을 따라 가는 사람</title>
 
-  <!-- Google Fonts (명조체) -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMj2vT3lqxGkM8fXjy2M5h/6qB+7t0wJf0YlUO8G0r6JYp+n+0FayWz6AxFdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
   <style>
     body {
-      font-family: 'Noto Serif KR', serif;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
@@ -28,6 +20,7 @@
       height: 85mm;
       perspective: 1000px;
       margin-top: 20px;
+      cursor: pointer;
     }
 
     .card-inner {
@@ -36,7 +29,6 @@
       height: 100%;
       transform-style: preserve-3d;
       transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
-      cursor: pointer;
     }
 
     .card.flipped .card-inner {
@@ -50,84 +42,31 @@
       backface-visibility: hidden;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0;
-      box-sizing: border-box;
+      background-size: cover;
+      background-position: center;
     }
 
-    /* 앞면 */
     .card-front {
-      background: url('images/front-1.png') no-repeat center/cover;
-      color: #000000; /* 글자 검정 */
+      background-image: url('images/front -2.png');
+      filter: brightness(0.95) contrast(1.1);
     }
 
-    /* 뒷면 */
     .card-back {
-      background: url('images/back-1.png') no-repeat center/cover;
-      color: #000000;
+      background-image: url('images/back-2.png');
+      filter: brightness(0.95) contrast(1.1);
       transform: rotateY(180deg);
     }
-
-    /* 텍스트 박스 */
-    .text-box {
-      background: rgba(212, 241, 255, 0.35); /* 반투명 앞면 배경 */
-      padding: 10px 12px;
-      border-radius: 8px;
-      text-shadow: 1px 1px 2px rgba(255,255,255,0.6); /* 글자 선명하게 */
-      max-width: 90%;
-    }
-
-    .card-back .text-box {
-      background: rgba(181, 230, 255, 0.35); /* 반투명 뒷면 배경 */
-    }
-
-    .text-box h3 {
-      margin: 0 0 6px 0;
-      font-size: 16px;
-    }
-
-    .text-box p {
-      margin: 2px 0;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    .hint-icon {
-      margin-top: 8px;
-      font-size: 18px;
-    }
-
   </style>
 </head>
 <body>
 
   <div class="card" id="card">
     <div class="card-inner">
-
       <!-- 앞면 -->
-      <div class="card-face card-front">
-        <div class="text-box">
-          <h3>네 길을 여호와께 맡기라</h3>
-          <p>그를 의지하면 그가 이루시고</p>
-          <p>(시 37:5)</p>
-          <i class="fas fa-lightbulb hint-icon"></i>
-        </div>
-      </div>
+      <div class="card-face card-front"></div>
 
       <!-- 뒷면 -->
-      <div class="card-face card-back">
-        <div class="text-box">
-          <p>
-            빛의 여정에 들어선 당신,<br>
-            이제 하나님의 인도하심을 따라 말씀의 길로 떠나가세요.<br><br>
-            다음 장소의 힌트는 목양관 복도에 있는 소화전에서 찾을 수 있습니다.
-          </p>
-        </div>
-      </div>
-
+      <div class="card-face card-back"></div>
     </div>
   </div>
 
