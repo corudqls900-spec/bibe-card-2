@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMj2vT3lqxGkM8fXjy2M5h/6qB+7t0wJf0YlUO8G0r6JYp+n+0FayWz6AxFdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
+    /* 기본 스타일 */
     body {
       font-family: 'Noto Serif KR', serif;
       display: flex;
@@ -23,6 +24,7 @@
       background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
     }
 
+    /* 카드 컨테이너 */
     .card {
       width: 55mm;
       height: 85mm;
@@ -35,7 +37,7 @@
       width: 100%;
       height: 100%;
       transform-style: preserve-3d;
-      transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform 0.8s cubic-bezier(0.4,0.2,0.2,1);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -46,6 +48,7 @@
       transform: rotateY(180deg);
     }
 
+    /* 카드 앞/뒤 공통 */
     .card-face {
       position: absolute;
       width: 100%;
@@ -59,21 +62,21 @@
       text-align: center;
       padding: 10px;
       box-sizing: border-box;
-      font-size: calc(12px + 0.3vw);
+      font-size: calc(12px + 0.3vw); /* 반응형 글자 크기 */
     }
 
-    /* 앞면 */
+    /* 카드 앞면 */
     .card-front {
-      background: url('images/front -2.png') no-repeat center/cover;
+      background: url('images/front-1.png') no-repeat center/cover;
       background-size: cover;
       background-position: center;
       filter: brightness(0.85) contrast(1.1);
       color: #000;
     }
 
-    /* 뒷면 */
+    /* 카드 뒷면 */
     .card-back {
-      background: url('images/back-2.png') no-repeat center/cover;
+      background: url('images/back-1.png') no-repeat center/cover;
       background-size: cover;
       background-position: center;
       filter: brightness(0.85) contrast(1.1);
@@ -81,10 +84,10 @@
       transform: rotateY(180deg);
     }
 
-    /* 텍스트 박스 */
+    /* 글자 박스 */
     .text-box {
-      background: rgba(255, 255, 255, 0.15); /* 거의 투명 */
-      backdrop-filter: blur(2px);             /* 글자 뒤 배경 살짝 흐림 */
+      background: rgba(255,255,255,0.15);  /* 거의 투명 */
+      backdrop-filter: blur(2px);          /* 글자 뒤 배경 흐림 */
       padding: 12px 14px;
       border-radius: 8px;
       text-shadow: 1px 1px 4px rgba(255,255,255,0.7);
@@ -95,7 +98,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      white-space: normal;
+      white-space: pre-wrap;  /* 줄바꿈 및 공백 그대로 유지 */
     }
 
     .text-box h3 {
@@ -104,13 +107,31 @@
     }
 
     .text-box p {
-      margin: 4px 0;
-      font-size: 14px;
+      margin: 6px 0;
+      line-height: 1.6;
+      word-break: keep-all;
     }
 
     .hint-icon {
       margin-top: 8px;
       font-size: 18px;
+    }
+
+    /* 모바일 대응 */
+    @media (max-width: 480px) {
+      .card {
+        width: 80vw;
+        height: 123vw; /* 비율 유지 */
+      }
+
+      .card-face {
+        font-size: calc(10px + 1vw);
+      }
+
+      .text-box {
+        padding: 10px 12px;
+        line-height: 1.5;
+      }
     }
 
   </style>
@@ -123,9 +144,9 @@
       <!-- 앞면 -->
       <div class="card-face card-front">
         <div class="text-box">
-          <h3>너희에게 심지어 머리털까지도</h3>
-          <p>다 세신 바 되었나니<br>두려워하지 말라</p>
-          <p>너희는 많은 참새보다 <br>더 귀하니라</p>
+          <p>너희에게 심지어 머리털까지도</p>
+          <p>다 세신 바 되었나니<strong>두려워하지 말라</strong></p>
+          <p>너희는 많은 참새보다<strong>더 귀하니라</strong></p>
           <p>(눅12:7)</p>
           <i class="fas fa-lightbulb hint-icon"></i>
         </div>
@@ -134,10 +155,9 @@
       <!-- 뒷면 -->
       <div class="card-face card-back">
         <div class="text-box">
-          <p>
-            당신은 하나님의 눈에 <br> 너무나 소중한 존재입니다<br>
-            두려워하지 말고, <br> 하나님의 시선을 <br> 따라가 보세요.<br><br>
-            다음 장소의 힌트는 <br> 신학과 게시판을 찾아보세요.
+            <p>당신은 하나님의 눈에 너무나 소중한 존재입니다.</p>
+            <p>두려워하지 말고,하나님의 시선을 따라가 보세요.</p>
+            <p>다음 장소의 힌트는 신학과 게시판을 찾아보세요.</p>
           </p>
         </div>
       </div>
@@ -149,5 +169,6 @@
     const card = document.getElementById('card');
     card.addEventListener('click', () => card.classList.toggle('flipped'));
   </script>
+
 </body>
 </html>
