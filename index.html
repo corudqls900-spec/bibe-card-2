@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>빛을 따라 가는 사람</title>
+  <title>빛의 길을 따라 가는 사람들</title>
 
   <style>
     body {
@@ -44,6 +44,11 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       background-size: cover;
       background-position: center;
+      display: flex; 
+      align-items: center;   /* 세로 중앙 정렬 */
+      justify-content: center; /* 가로 중앙 정렬 */
+      text-align: center;
+      padding: 10px;
     }
 
     .card-front {
@@ -56,6 +61,18 @@
       filter: brightness(0.95) contrast(1.1);
       transform: rotateY(180deg);
     }
+
+    /* 글자 스타일 */
+    .card-text {
+      font-family: "Times New Roman","명조체", serif; /* 명조체 */
+      font-size: 15px;
+      color: #333; /* 덜 쨍한 진회색 */
+      background: rgba(255, 255, 255, 0.6); /* 좀 더 투명한 배경 */
+      padding: 6px 10px;
+      border-radius: 8px;
+      line-height: 1.6;
+      max-width: 90%; /* 너무 넓어지지 않게 */
+    }
   </style>
 </head>
 <body>
@@ -63,10 +80,25 @@
   <div class="card" id="card">
     <div class="card-inner">
       <!-- 앞면 -->
-      <div class="card-face card-front"></div>
+      <div class="card-face card-front">
+        <div class="card-text">
+          네 길을 여호와께 맡기라<br>
+          그를 의지하면 그가 이루시고<br><br>
+          (시 37:5)
+        </div>
+      </div>
 
       <!-- 뒷면 -->
-      <div class="card-face card-back"></div>
+      <div class="card-face card-back">
+        <div class="card-text">
+          빛의 여정에 들어온 당신,<br>
+          이제 하나님의 인도하심을 따라<br>
+          말씀의 길로 떠나가세요.<br><br>
+          다음 장소의 힌트는<br>
+          목양관 복도에 있는 소화전에서<br>
+          찾을 수 있습니다.
+        </div>
+      </div>
     </div>
   </div>
 
