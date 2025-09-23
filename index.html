@@ -8,11 +8,47 @@
   <style>
     body {
       display: flex;
+      flex-direction: column; /* 세로로 배치 */
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
       background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+      font-family: "Times New Roman","명조체", serif;
+    }
+
+    /* 질문 박스 */
+    .question-box {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .question-box p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .question-box button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .question-box button:hover {
+      background: #357ab8;
+    }
+
+    /* 카드 숨김 상태 */
+    .hidden {
+      display: none;
     }
 
     .card {
@@ -45,8 +81,8 @@
       background-size: cover;
       background-position: center;
       display: flex; 
-      align-items: center;   /* 세로 중앙 정렬 */
-      justify-content: center; /* 가로 중앙 정렬 */
+      align-items: center;
+      justify-content: center;
       text-align: center;
       padding: 10px;
     }
@@ -64,19 +100,24 @@
 
     /* 글자 스타일 */
     .card-text {
-      font-family: "Times New Roman","명조체", serif; /* 명조체 */
       font-size: 15px;
-      color: #333; /* 덜 쨍한 진회색 */
-      background: rgba(255, 255, 255, 0.6); /* 좀 더 투명한 배경 */
+      color: #333;
+      line-height: 1.6;
+      max-width: 90%;
+    }
+
+    /* 앞면 전용 반투명 박스 */
+    .card-front .card-text {
+      background: rgba(255, 255, 255, 0.6);
       padding: 6px 10px;
       border-radius: 8px;
-      line-height: 1.6;
-      max-width: 90%; /* 너무 넓어지지 않게 */
     }
+
     .card-front .bold-front {
-  font-weight: bold; /* 앞면 전용 굵게 */
-}
-    /* 뒷면 텍스트 배경 없애기 */
+      font-weight: bold;
+    }
+
+    /* 뒷면은 배경 제거 */
     .card-back .card-text {
       background: none;
       padding: 0;
@@ -85,7 +126,14 @@
 </head>
 <body>
 
-  <div class="card" id="card">
+  <!-- 질문 화면 -->
+  <div class="question-box" id="questionBox">
+    <p>목양관에 있는 1, 2층 말씀 구절들을<br>다 확인하셨나요?</p>
+    <button id="confirmBtn">네, 확인했습니다</button>
+  </div>
+
+  <!-- 카드 (처음엔 숨김) -->
+  <div class="card hidden" id="card">
     <div class="card-inner">
       <!-- 앞면 -->
       <div class="card-face card-front">
@@ -105,7 +153,7 @@
         <div class="card-text">
           당신은 하나님 눈에<br>
           너무나 소중한 존재입니다.<br>
-          두려워하지 말고,하나님의<br>
+          두려워하지 말고, 하나님의<br>
           시선을 따라가 보세요.<br><br>
           다음 장소의 힌트는<br>
           신학과 게시판을 찾아보세요.<br>
@@ -116,7 +164,17 @@
 
   <script>
     const card = document.getElementById('card');
+    const questionBox = document.getElementById('questionBox');
+    const confirmBtn = document.getElementById('confirmBtn');
+
+    // 카드 뒤집기
     card.addEventListener('click', () => card.classList.toggle('flipped'));
+
+    // 확인 버튼 클릭 시 카드 보이기
+    confirmBtn.addEventListener('click', () => {
+      questionBox.classList.add('hidden'); // 질문 박스 숨김
+      card.classList.remove('hidden'); // 카드 보임
+    });
   </script>
 </body>
 </html>
